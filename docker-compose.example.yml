@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  forensic-desktop:
+    build:
+      context: .
+      args:
+        - TARGET_USER=ubu
+        # Replace with a secure password before running
+        - TARGET_PASSWORD=CHANGEME
+    image: ubuntu-forensic-image
+    container_name: forensic-ubu
+    ports:
+      - "127.0.0.1:3389:3389"
+    volumes:
+      # This maps the local 'forensic_files' directory to the container's workspace
+      - ./forensic_files:/shared/workspace

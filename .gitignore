@@ -1,0 +1,17 @@
+# Ignore the shared workspace to prevent committing sensitive case data
+/forensic_files/
+
+# Ignore the docker-compose file which may contain local credentials or config
+/docker-compose.yml
+
+# Ignore common temporary files and build artifacts
+*.log
+*.cache
+*.diff
+*.patch
+*.swo
+*~
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
