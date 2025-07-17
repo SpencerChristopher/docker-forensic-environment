@@ -22,17 +22,15 @@ This project provides a self-contained forensic analysis environment using Docke
 
 ## Usage
 
-### 1. Build and Start the Container
+### 1. Start the Container
 
-Open a terminal in the project root and run the following command:
+Open a terminal in the project root and run the following command to build (if necessary) and start the container in the background:
 
 ```bash
-docker compose up -d --build
+docker compose up -d
 ```
 
-- This command builds the Docker image based on the `Dockerfile`.
-- It then starts the container in detached mode (`-d`).
-- The `--build` flag is only necessary on the first run or after you have modified the `Dockerfile`.
+*(Note: If you modify the `Dockerfile`, run `docker compose up -d --build` to apply your changes.)*
 
 ### 2. Connect to the Desktop
 
@@ -40,7 +38,7 @@ You can now connect to the container's desktop environment using any Remote Desk
 
 - **Address:** `127.0.0.1:3389`
 - **Username:** `ubu`
-- **Password:** `1234`
+- **Password:** `1234` (or whatever you set in your `docker-compose.yml`)
 
 ### 3. Access Your Files
 
@@ -50,7 +48,7 @@ Inside the Lubuntu desktop, open the file manager and navigate to the following 
 /shared/workspace
 ```
 
-This directory is directly linked to the `forensic_files` folder on your local machine. Files can be added or modified from either location.
+This directory is directly linked to the `forensic_files` folder on your local machine.
 
 ### 4. Stop the Container
 
