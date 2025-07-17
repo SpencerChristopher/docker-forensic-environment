@@ -33,12 +33,12 @@ RUN apt-get update && \
         wireshark \
         mono-complete && \
     # Create user and set password
-    useradd -m -s /bin/bash ubu && \
-    echo "ubu:1234" | chpasswd && \
-    usermod -aG sudo,wireshark ubu && \
+    useradd -m -s /bin/bash ${TARGET_USER} && \
+    echo "${TARGET_USER}:${TARGET_PASSWORD}" | chpasswd && \
+    usermod -aG sudo,wireshark ${TARGET_USER} && \
     # Create a shared workspace and set permissions
     mkdir -p /shared/workspace && \
-    chown -R ubu:ubu /shared/workspace && \
+    chown -R ${TARGET_USER}:${TARGET_USER} /shared/workspace && \
     # Clean up
     rm -rf /var/lib/apt/lists/*
 
